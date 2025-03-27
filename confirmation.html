@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Booking Confirmation</title>
+    <link href="./output.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f3f4f6;
+            text-align: center;
+        }
+        .container {
+            max-width: 500px;
+            margin: 50px auto;
+            padding: 20px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h2 {
+            color: #16a34a;
+        }
+        .button-primary {
+            background-color: #facc15;
+            color: black;
+            font-weight: bold;
+            padding: 12px 20px;
+            border-radius: 8px;
+            text-decoration: none;
+            display: inline-block;
+            margin-top: 15px;
+        }
+        .button-primary:hover {
+            background-color: #eab308;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h2>Booking Confirmed! ✅</h2>
+        <p>Thank you, <span id="userName"></span>, for choosing Recidencia Del Hamor.</p>
+        <p>Room: <span id="userRoom"></span></p>
+        <p>Check-in Date: <span id="userCheckin"></span></p>
+        <p>Check-out Date: <span id="userCheckout"></span></p>
+        <a href="index.html" class="button-primary">Return to Home</a>
+    </div>
+
+    <script>
+        // Get URL parameters and display booking details
+        const params = new URLSearchParams(window.location.search);
+        document.getElementById("userName").textContent = params.get("name") || "Guest";
+        document.getElementById("userRoom").textContent = params.get("room") || "Not Specified";
+        document.getElementById("userCheckin").textContent = params.get("checkin") || "Not Specified";
+        document.getElementById("userCheckout").textContent = params.get("checkout") || "Not Specified";
+    </script>
+
+</body>
+</html>
